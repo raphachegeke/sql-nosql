@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL & NoSQL Slide Presentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #000;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      padding: 50px;
+      box-sizing: border-box;
+      display: none;
+      background: #f0f0f0;
+      border-bottom: 1px solid #000;
+    }
+    .active {
+      display: block;
+    }
+    h1, h2 {
+      margin-top: 0;
+      color: #000;
+    }
+    ul {
+      margin: 15px 0;
+    }
+    table {
+      border-collapse: collapse;
+      width: 60%;
+      margin: 10px 0;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: left;
+    }
+    code {
+      background: #ddd;
+      padding: 2px 5px;
+      border-radius: 3px;
+      display: block;
+      margin: 5px 0;
+    }
+    .graph {
+      margin-top: 10px;
+    }
+    .node {
+      display: inline-block;
+      padding: 8px 12px;
+      margin: 5px;
+      background: #000;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+    }
+    .edge {
+      display: inline-block;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+    .controls {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1 -->
+  <section class="slide active">
+    <h1>SQL & NoSQL Presentation</h1>
+    <p>Welcome! Use the Next/Prev buttons to navigate through the slides.</p>
+  </section>
+
+  <!-- Slide 2 -->
+  <section class="slide">
+    <h2>1. What is SQL?</h2>
+    <p>SQL (Structured Query Language) is used to manage relational databases. Data is stored in tables with rows and columns.</p>
+    <p><strong>Example: Students Table</strong></p>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Grade</th>
+      </tr>
+      <tr>
+        <td>Leo</td>
+        <td>20</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>Amy</td>
+        <td>21</td>
+        <td>B</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Slide 3 -->
+  <section class="slide">
+    <h2>2. Characteristics of SQL</h2>
+    <ul>
+      <li><strong>Declarative:</strong> You say what you want, not how to do it. <code>SELECT Name FROM Students;</code></li>
+      <li><strong>Uses Tables:</strong> Structured rows and columns. Example above.</li>
+      <li><strong>Works on Most Databases:</strong> MySQL, PostgreSQL, Oracle.</li>
+      <li><strong>Data Manipulation:</strong> Add, update, delete data. <code>INSERT INTO Students VALUES('Mia',22,'A');</code></li>
+      <li><strong>Data Definition:</strong> Create or modify tables. <code>CREATE TABLE Students(Name VARCHAR(50), Age INT);</code></li>
+      <li><strong>Transactional:</strong> Safe changes. <code>BEGIN TRANSACTION; ... COMMIT;</code></li>
+      <li><strong>Set-based Operations:</strong> Update multiple rows at once. <code>UPDATE Students SET Grade='B' WHERE Age>20;</code></li>
+    </ul>
+  </section>
+
+  <!-- Slide 4 -->
+  <section class="slide">
+    <h2>3. Databases that use SQL</h2>
+    <ul>
+      <li>MySQL</li>
+      <li>PostgreSQL</li>
+      <li>Microsoft SQL Server</li>
+      <li>Oracle Database</li>
+      <li>SQLite</li>
+      <li>MariaDB</li>
+    </ul>
+  </section>
+
+  <!-- Slide 5 -->
+  <section class="slide">
+    <h2>4. What is NoSQL?</h2>
+    <p>NoSQL databases handle unstructured or semi-structured data. They are flexible, scalable, and fast.</p>
+    <p><strong>Examples:</strong></p>
+    <p><strong>Document (MongoDB):</strong></p>
+    <code>{
+  "Name": "Leo",
+  "Age": 20,
+  "Grade": "A",
+  "Hobby": "Coding"
+}</code>
+    <p><strong>Key-Value (Redis):</strong></p>
+    <code>"user:1001" -> "Leo"</code>
+    <p><strong>Graph (Neo4j):</strong></p>
+    <div class="graph">
+      <div class="node">Leo</div>
+      <span class="edge">FRIENDS_WITH</span>
+      <div class="node">Amy</div>
+    </div>
+  </section>
+
+  <!-- Slide 6 -->
+  <section class="slide">
+    <h2>5. What does "No" stand for?</h2>
+    <p>"No" = "Not only". NoSQL means not only SQL tables; focus is on flexibility and speed.</p>
+  </section>
+
+  <!-- Slide 7 -->
+  <section class="slide">
+    <h2>6. Characteristics of NoSQL</h2>
+    <ul>
+      <li><strong>Flexible Structure:</strong> Can store documents, key-values, graphs, columns.</li>
+      <li><strong>Dynamic Schema:</strong> Add fields anytime without affecting others. <code>{ "Hobby": "Football" }</code></li>
+      <li><strong>Scales Easily:</strong> Add servers for more data. Used by Instagram, Facebook.</li>
+      <li><strong>Transaction Support:</strong> Some support multi-document transactions.</li>
+      <li><strong>Handles Big/Fast Data:</strong> Ideal for live apps, analytics, chat apps.</li>
+    </ul>
+  </section>
+
+  <!-- Slide 8 -->
+  <section class="slide">
+    <h2>7. Databases that use NoSQL</h2>
+    <ul>
+      <li>MongoDB – Document-based</li>
+      <li>Redis – Key-value store</li>
+      <li>Cassandra – Wide-column store</li>
+      <li>Firebase Realtime DB / Firestore – Apps</li>
+      <li>CouchDB – Document-based</li>
+      <li>Neo4j – Graph database</li>
+    </ul>
+  </section>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button onclick="prevSlide()">Prev</button>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      slides.forEach((s, i) => s.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>
